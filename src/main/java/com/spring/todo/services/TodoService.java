@@ -29,4 +29,16 @@ public class TodoService {
 	 return TodoRepo.findAll();
 	}
 
+	public Todo update(Integer id, Todo todo) {
+		
+		Todo tdObj = findByid(id);
+		
+		tdObj.setTitulo(todo.getTitulo());
+		tdObj.setDescricao(todo.getDescricao());
+		tdObj.setFinalizado(todo.getFinalizado());
+		tdObj.setDataParaFinalizar(todo.getDataParaFinalizar());
+		
+		return TodoRepo.save(tdObj);
+	}
+	
 }
