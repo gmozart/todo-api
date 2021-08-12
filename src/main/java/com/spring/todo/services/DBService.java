@@ -5,17 +5,18 @@ import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.spring.todo.domain.Todo;
 import com.spring.todo.repositories.TodoRepository;
 
-
+@Service
 public class DBService {
 	
 	@Autowired
 	private TodoRepository TodoRepo;
 	
-	public void instnaciaBaseDeDados(){
+	public void instanciaBaseDeDados(){
 
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
 

@@ -4,9 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
-
-import com.spring.todo.services.TodoService;
-
+import com.spring.todo.services.DBService;
 
 
 @Configuration
@@ -14,12 +12,12 @@ import com.spring.todo.services.TodoService;
 public class TestConfig {
 	
 	@Autowired
-	private TodoService  tdService;
+	private DBService dbService;
 	
 	@Bean
 	public boolean instancia() {
 		
-		this.tdService.instnaciaBaseDeDados();
+		this.dbService.instanciaBaseDeDados();
 		
 		return true;
 		                                       
