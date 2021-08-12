@@ -48,5 +48,11 @@ public class TodoService {
 		
 	}
 	
+	public Todo create(Todo todo) {
+		
+	   
+		return TodoRepo.save(todo);
+	}
+	
 	
 }
