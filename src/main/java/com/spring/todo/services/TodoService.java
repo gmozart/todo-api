@@ -16,7 +16,7 @@ public class TodoService {
 	@Autowired
 	private TodoRepository TodoRepo;
 
-	public void run(String... args) throws Exception {
+	public void instnaciaBaseDeDados(){
 
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
 
