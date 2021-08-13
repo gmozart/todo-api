@@ -24,11 +24,6 @@ public class TodoService {
 	 return obj.orElse(null);
 	}
 	
-	public List<Todo> findAll(){
-		
-	 return TodoRepo.findAll();
-	}
-
 	public Todo update(Integer id, Todo todo) {
 		
 		Todo tdObj = findByid(id);
@@ -51,6 +46,27 @@ public class TodoService {
 	public Todo create(Todo todo) {
 		
 		return TodoRepo.save(todo);
+	}
+
+	public List<Todo> findAllOpen() {
+		
+		List<Todo> list = TodoRepo.findAllOpen();
+		
+		return list;
+	}
+
+	public List<Todo> findAllClose() {
+		
+        List<Todo> list = TodoRepo.findAllClose();
+		
+		return list;
+	}
+
+	public List<Todo> findAll() {
+		
+		  List<Todo> list = TodoRepo.findAll();
+			
+			return list;
 	}
 	
 	

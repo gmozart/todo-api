@@ -22,8 +22,14 @@ public class DBService {
 
 		Todo t1 = new Todo(null, "Estudar", "Estudar Spring Boot 2 e Angular 11",
 				LocalDateTime.parse("09/08/2021 23:47", formatter), false);
+		Todo t2 = new Todo(null, "Ler", "Livro de Desenvolvimento Pessoal",
+				LocalDateTime.parse("12/08/2021 23:47", formatter), true);
+		Todo t3 = new Todo(null, "Exercicios", "Práticar Exércicios Físicos",
+				LocalDateTime.parse("15/08/2021 23:47", formatter), false);
+		Todo t4 = new Todo(null, "Meditar", "Sobre ás Escrituras",
+				LocalDateTime.parse("20/08/2021 23:47", formatter), true);
 
-		TodoRepo.saveAll(Arrays.asList(t1));
+		TodoRepo.saveAll(Arrays.asList(t1,t2,t3,t4));
 
 	}
 	
