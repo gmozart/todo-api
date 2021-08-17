@@ -76,7 +76,6 @@ public class TodoResource {
 		Todo objTodo = tdService.findByid(id);
 		
 		if(!objTodo.getId().equals(null)) {
-			
 			tdService.delete(id);	
 			
 		}else {
