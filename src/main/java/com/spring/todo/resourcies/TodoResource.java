@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -67,6 +68,26 @@ public class TodoResource {
 		
 		return ResponseEntity.created(uri).body(obj);
 		
+	}
+	
+	@DeleteMapping(value = "/{id}")
+	public ResponseEntity<Todo> delete(@PathVariable Integer id){
+		
+		Todo objTodo = tdService.findByid(id);
+		
+		if(!objTodo.getId().equals(null)) {
+			
+			tdService.delete(id);	
+			
+		}else {
+			
+			System.out.println("Objeto de Código :"+id+" Não Existe!");
+			
+		}
+		
+		return ResponseEntity.ok().body(objTodo);
+				
+				
 	}
 	
 
