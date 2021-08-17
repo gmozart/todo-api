@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 
 import com.spring.todo.domain.Todo;
 import com.spring.todo.repositories.TodoRepository;
+import com.spring.todo.services.exceptions.ObjectNotFoundException;
+
 
 @Service
 public class TodoService {
@@ -21,7 +23,7 @@ public class TodoService {
 		
 	Optional<Todo> obj = TodoRepo.findById(id);
 	
-	 return obj.orElse(null);
+	 return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto Não encontrado! " + id +", Tipo: "+ Todo.class.getName(), null));
 	}
 	
 	public Todo update(Integer id, Todo todo) {

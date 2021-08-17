@@ -19,75 +19,64 @@ import com.spring.todo.repositories.TodoRepository;
 import com.spring.todo.services.TodoService;
 
 @RestController
-@RequestMapping(value ="/todos")
+@RequestMapping(value = "/todos")
 public class TodoResource {
-	
+
 	@Autowired
 	private TodoService tdService;
-	
-	
+
 	@GetMapping(value = "/{id}")
-	public ResponseEntity<Todo> findByid(@PathVariable Integer id){
-		
-	    Todo objTodo = tdService.findByid(id);
-		
-		return ResponseEntity.ok().body(objTodo);
-	}
-	
-	
-	@GetMapping(value = "/open" )
-	public ResponseEntity<List<Todo>> listOpen(){
-		
-		List<Todo> list = tdService.findAllOpen();				
-		
-		return ResponseEntity.ok().body(list);
-	}
-	
-	@GetMapping(value = "/close" )
-	public ResponseEntity<List<Todo>> listClose(){
-		
-		List<Todo> list = tdService.findAllClose();				
-		
-		return ResponseEntity.ok().body(list);
-	}
-	
-	@GetMapping(value = "/listAll" )
-	public ResponseEntity<List<Todo>> listAll(){
-		
-		List<Todo> list = tdService.findAll();			
-		
-		return ResponseEntity.ok().body(list);
-	}
-	
-	@PostMapping
-	public ResponseEntity<Todo> create(@RequestBody Todo obj ){
-		
-		obj =  tdService.create(obj);
-		
-		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId()).toUri();
-		
-		return ResponseEntity.created(uri).body(obj);
-		
-	}
-	
-	@DeleteMapping(value = "/{id}")
-	public ResponseEntity<Todo> delete(@PathVariable Integer id){
-		
+	public ResponseEntity<Todo> findByid(@PathVariable Integer id) {
+
 		Todo objTodo = tdService.findByid(id);
-		
-		if(!objTodo.getId().equals(null)) {
-			tdService.delete(id);	
-			
-		}else {
-			
-			System.out.println("Objeto de Código :"+id+" Não Existe!");
-			
-		}
-		
+
 		return ResponseEntity.ok().body(objTodo);
-				
-				
 	}
-	
+
+	@GetMapping(value = "/open")
+	public ResponseEntity<List<Todo>> listOpen() {
+
+		List<Todo> list = tdService.findAllOpen();
+
+		return ResponseEntity.ok().body(list);
+	}
+
+	@GetMapping(value = "/close")
+	public ResponseEntity<List<Todo>> listClose() {
+
+		List<Todo> list = tdService.findAllClose();
+
+		return ResponseEntity.ok().body(list);
+	}
+
+	@GetMapping(value = "/listAll")
+	public ResponseEntity<List<Todo>> listAll() {
+
+		List<Todo> list = tdService.findAll();
+
+		return ResponseEntity.ok().body(list);
+	}
+
+	@PostMapping
+	public ResponseEntity<Todo> create(@RequestBody Todo obj) {
+
+		obj = tdService.create(obj);
+
+		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId()).toUri();
+
+		return ResponseEntity.created(uri).body(obj);
+
+	}
+
+	@DeleteMapping(value = "/{id}")
+	public ResponseEntity<Todo> delete(@PathVariable Integer id) {
+
+		Todo objTodo = tdService.findByid(id);
+
+		tdService.delete(id);
+
+		return ResponseEntity.ok().body(objTodo);
+
+	}
 
 }
