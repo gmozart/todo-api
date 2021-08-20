@@ -1,9 +1,8 @@
 package com.spring.todo.services;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,18 +15,18 @@ public class DBService {
 	@Autowired
 	private TodoRepository TodoRepo;
 	
-	public void instanciaBaseDeDados(){
+	public void instanciaBaseDeDados() throws ParseException{
 
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
 		Todo t1 = new Todo(null, "Estudar", "Estudar Spring Boot 2 e Angular 11",
-				LocalDateTime.parse("09/08/2021 23:47", formatter), false);
+				sdf.parse("09/08/2021"), false);
 		Todo t2 = new Todo(null, "Ler", "Livro de Desenvolvimento Pessoal",
-				LocalDateTime.parse("12/08/2021 23:47", formatter), true);
+				sdf.parse("12/08/2021"), true);
 		Todo t3 = new Todo(null, "Exercicios", "Práticar Exércicios Físicos",
-				LocalDateTime.parse("15/08/2021 23:47", formatter), false);
+				sdf.parse("15/08/2021"), false);
 		Todo t4 = new Todo(null, "Meditar", "Sobre ás Escrituras",
-				LocalDateTime.parse("20/08/2021 23:47", formatter), true);
+				sdf.parse("20/08/2021"), true);
 
 		TodoRepo.saveAll(Arrays.asList(t1,t2,t3,t4));
 
