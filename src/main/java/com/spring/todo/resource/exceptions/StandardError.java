@@ -1,4 +1,4 @@
-package com.spring.todo.resourcies.exceptions;
+package com.spring.todo.resource.exceptions;
 
 public class StandardError {
 

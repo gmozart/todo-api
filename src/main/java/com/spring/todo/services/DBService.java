@@ -1,13 +1,12 @@
 package com.spring.todo.services;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Arrays;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.spring.todo.domain.Todo;
-import com.spring.todo.repositories.TodoRepository;
+import com.spring.todo.repository.TodoRepository;
 
 @Service
 public class DBService {
@@ -15,20 +14,25 @@ public class DBService {
 	@Autowired
 	private TodoRepository TodoRepo;
 	
-	public void instanciaBaseDeDados() throws ParseException{
+	public void instanciaBaseDeDados(){
 
-		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-
-		Todo t1 = new Todo(null, "Estudar", "Estudar Spring Boot 2 e Angular 11",
-				sdf.parse("09/08/2021"), false);
-		Todo t2 = new Todo(null, "Ler", "Livro de Desenvolvimento Pessoal",
-				sdf.parse("12/08/2021"), true);
-		Todo t3 = new Todo(null, "Exercicios", "Práticar Exércicios Físicos",
-				sdf.parse("15/08/2021"), false);
-		Todo t4 = new Todo(null, "Meditar", "Sobre ás Escrituras",
-				sdf.parse("20/08/2021"), true);
-
-		TodoRepo.saveAll(Arrays.asList(t1,t2,t3,t4));
+		
+		Todo t1 = new Todo();
+		
+		t1.setDataParaFinalizar(LocalDate.of(2020, 12, 21));
+		t1.setDescricao("Angular Básico");
+		t1.setFinalizado(true);
+		t1.setTitulo("Angular");
+		
+        Todo t2 = new Todo();
+		
+		t2.setDataParaFinalizar(LocalDate.of(2020, 12, 21));
+		t2.setDescricao("Spring Básico");
+		t2.setFinalizado(true);
+		t2.setTitulo("Spring");
+		
+		
+		TodoRepo.saveAll(Arrays.asList(t1,t2));
 
 	}
 	

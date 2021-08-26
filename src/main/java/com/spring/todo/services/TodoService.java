@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.spring.todo.domain.Todo;
-import com.spring.todo.repositories.TodoRepository;
+import com.spring.todo.repository.TodoRepository;
 import com.spring.todo.services.exceptions.ObjectNotFoundException;
 
 @Service

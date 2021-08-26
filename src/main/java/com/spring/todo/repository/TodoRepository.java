@@ -1,4 +1,4 @@
-package com.spring.todo.repositories;
+package com.spring.todo.repository;
 
 import java.util.List;
 

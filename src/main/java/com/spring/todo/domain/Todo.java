@@ -1,17 +1,17 @@
 package com.spring.todo.domain;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
-import java.util.Date;
-
+import java.time.LocalDate;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 
-@Entity()
+
+@Table(name = "Todo")
+@Entity
 public class Todo implements Serializable{
 
 	private static final long serialVersionUID = 1L;
@@ -21,22 +21,9 @@ public class Todo implements Serializable{
 	private Integer id;
 	private String titulo;
 	private String descricao;
-	@JsonFormat(pattern = "dd/MM/yyyy")
-	private Date dataParaFinalizar;
-	private Boolean finalizado = false;
+	private LocalDate dataParaFinalizar;
+	private Boolean finalizado;
 
-	public Todo() {
-		super();
-	}
-
-	public Todo(Integer id, String titulo, String descricao, Date dataParaFinalizar, Boolean finalizado) {
-		super();
-		this.id = id;
-		this.titulo = titulo;
-		this.descricao = descricao;
-		this.dataParaFinalizar = dataParaFinalizar;
-		this.finalizado = finalizado;
-	}
 
 	public Integer getId() {
 		return id;
@@ -62,11 +49,11 @@ public class Todo implements Serializable{
 		this.descricao = descricao;
 	}
 
-	public Date getDataParaFinalizar() {
+	public LocalDate getDataParaFinalizar() {
 		return dataParaFinalizar;
 	}
 
-	public void setDataParaFinalizar(Date dataParaFinalizar) {
+	public void setDataParaFinalizar(LocalDate dataParaFinalizar) {
 		this.dataParaFinalizar = dataParaFinalizar;
 	}
 
