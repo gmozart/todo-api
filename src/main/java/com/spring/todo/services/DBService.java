@@ -21,7 +21,7 @@ public class DBService {
 		
 		t1.setDataParaFinalizar(LocalDate.of(2020, 12, 21));
 		t1.setDescricao("Angular Básico");
-		t1.setFinalizado(true);
+		t1.setFinalizado(false);
 		t1.setTitulo("Angular");
 		
         Todo t2 = new Todo();
