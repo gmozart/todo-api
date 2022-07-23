@@ -24,7 +24,7 @@ import io.swagger.annotations.ApiOperation;
 @ApiOperation(value = "TODO")
 @CrossOrigin("*")
 @RestController
-@RequestMapping(value = "/todo")
+@RequestMapping(value = "/todos")
 public class TodoResource {
 
 	@Autowired
