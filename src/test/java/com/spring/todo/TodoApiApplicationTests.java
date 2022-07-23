@@ -11,6 +11,7 @@ class TodoApiApplicationTests {
 	void contextLoads() {
 		String valor = "oi";
 		Assertions.assertEquals("oi", valor);
+		Assertions.assertTrue(true);
 	}
 
 }
