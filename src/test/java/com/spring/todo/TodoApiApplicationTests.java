@@ -10,7 +10,7 @@ class TodoApiApplicationTests {
 	@Test
 	void contextLoads() {
 		String valor = "oi";
-		Assertions.assertEquals("i", valor);
+		Assertions.assertEquals("oi", valor);
 	}
 
 }
