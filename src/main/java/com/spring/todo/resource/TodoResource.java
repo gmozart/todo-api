@@ -18,10 +18,9 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import com.spring.todo.domain.Todo;
 import com.spring.todo.services.TodoService;
 
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
 
-@ApiOperation(value = "TODO")
+
+
 @CrossOrigin("*")
 @RestController
 @RequestMapping(value = "/todos")
@@ -30,7 +29,7 @@ public class TodoResource {
 	@Autowired
 	private TodoService tdService;
     
-	@ApiOperation(notes = "Essa API retorna um TODO por ID", value = "GET por ID")
+
 	@GetMapping(value = "/{id}")
 	public ResponseEntity<Todo> findByid(@PathVariable Integer id) {
 
